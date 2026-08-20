@@ -1,0 +1,21 @@
+title: Educar as Crianças para uma Nova Era
+description: >-
+  Circulação e apropriação do pensamento montessoriano no Brasil em
+  confluência com o movimento internacional da educação nova
+author: Dr. Vinicius de Moraes Monção
+theme: minima
+minima:
+  skin: auto
+  nav_pages:
+    - about.md
+    - biografia-montessori.md
+    - circulacao-brasil.md
+    - fontes.md
+    - bibliografia.md
+    - redes.md
+    - publicacoes.md
+    - contato.md
+markdown: kramdown
+plugins:
+  - jekyll-feed
+show_excerpts: false
