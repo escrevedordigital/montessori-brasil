@@ -1,0 +1,710 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Vozes da Imprensa Montessoriana</title>
+<meta name="description" content="85 autores identificados em periódicos brasileiros (1900-1959) que publicaram sobre Montessori: selecione uma temática do próprio levantamento hemerográfico para ver quem escreveu sobre ela, com nota biográfica e fonte verificadas.">
+<style>
+  :root{
+    --paper:#F6ECEA;
+    --paper-raised:#FFFFFF;
+    --ink:#2E1620;
+    --ink-soft:#5E3540;
+    --muted:#8C6870;
+    --gold:#7A1F2E;
+    --gold-bright:#A32A3D;
+    --on-accent:#FBEEF0;
+    --line:#E6D3D2;
+    --chip-bg:#FFFFFF;
+    --chip-text:#4A2530;
+    --chip-border:#E6D3D2;
+    --faded-op:0.10;
+    --ok-bg:#EEF3E8;
+    --ok-text:#4C6B2F;
+    --no-bg:#F1E5E3;
+    --no-text:#8C6870;
+    --link:#7A1F2E;
+    --dec-1:#1F6F6B;
+    --dec-2:#9C6B14;
+    --dec-3:#34519C;
+    --dec-4:#4B7A2F;
+    --dec-5:#B5541E;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1C1114;
+      --paper-raised:#28181D;
+      --ink:#F3E5E6;
+      --ink-soft:#D9BEC3;
+      --muted:#A9838B;
+      --gold:#D98A9B;
+      --gold-bright:#EFA8B8;
+      --on-accent:#2E1620;
+      --line:#3D262C;
+      --chip-bg:#28181D;
+      --chip-text:#EAD7DA;
+      --chip-border:#3D262C;
+      --faded-op:0.08;
+      --ok-bg:#233523;
+      --ok-text:#9FCB86;
+      --no-bg:#241A1D;
+      --no-text:#A9838B;
+      --link:#EFA8B8;
+      --dec-1:#5FCFC7;
+      --dec-2:#E8B84B;
+      --dec-3:#8FAEEF;
+      --dec-4:#9FCB86;
+      --dec-5:#F0A272;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1C1114;
+    --paper-raised:#28181D;
+    --ink:#F3E5E6;
+    --ink-soft:#D9BEC3;
+    --muted:#A9838B;
+    --gold:#D98A9B;
+    --gold-bright:#EFA8B8;
+    --on-accent:#2E1620;
+    --line:#3D262C;
+    --chip-bg:#28181D;
+    --chip-text:#EAD7DA;
+    --chip-border:#3D262C;
+    --faded-op:0.08;
+    --ok-bg:#233523;
+    --ok-text:#9FCB86;
+    --no-bg:#241A1D;
+    --no-text:#A9838B;
+    --link:#EFA8B8;
+    --dec-1:#5FCFC7;
+    --dec-2:#E8B84B;
+    --dec-3:#8FAEEF;
+    --dec-4:#9FCB86;
+    --dec-5:#F0A272;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    padding-inline:20px;
+    padding-block: 28px 40px;
+  }
+  .wrap{max-width:1180px; margin:0 auto;}
+  body.modal-open{ overflow:hidden; }
+
+  header{margin-bottom:22px; text-align:center;}
+  .eyebrow{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  h1{
+    font-family:'EB Garamond', Georgia, serif;
+    font-size:clamp(28px, 4vw, 42px);
+    font-weight:600;
+    margin:0 0 10px;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  .lede{
+    font-size:15px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:760px;
+    margin:0 auto 4px;
+  }
+  .stats{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+    margin-top:14px;
+  }
+  .stat{ font-size:13px; color:var(--ink-soft); }
+  .stat b{
+    display:block;
+    font-family:'EB Garamond', serif;
+    font-size:24px;
+    color:var(--ink);
+    line-height:1.1;
+  }
+
+  .filters{
+    position:sticky;
+    top:env(safe-area-inset-top, 0px);
+    z-index:5;
+    background:var(--paper);
+    padding-block:16px 12px;
+    margin-top:20px;
+    border-bottom:1px solid var(--line);
+  }
+  .filters-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .filters-label-2{
+    margin-top:34px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+  .chip-theme{
+    appearance:none;
+    border:1px solid var(--chip-border);
+    background:var(--chip-bg);
+    color:var(--chip-text);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12.5px;
+    font-weight:500;
+    padding:7px 12px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background .18s ease, color .18s ease, border-color .18s ease, transform .12s ease;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    line-height:1.2;
+  }
+  .chip-theme:hover{ transform:translateY(-1px); border-color:var(--gold); }
+  .chip-theme .n{
+    font-variant-numeric:tabular-nums;
+    font-size:11px;
+    color:var(--muted);
+    background:transparent;
+  }
+  .chip-theme.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+  .chip-theme.active .n{ color:var(--gold-bright); }
+  .chip-theme.all.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--on-accent);
+  }
+  .chip-theme.all.active .n{ color:var(--on-accent); opacity:.75;}
+  .chip-theme[data-decada]{
+    border-left:4px solid var(--dc, var(--chip-border));
+  }
+  .chip-theme[data-decada].active{
+    background:var(--dc, var(--ink));
+    border-color:var(--dc, var(--ink));
+    color:var(--on-accent);
+  }
+  .chip-theme[data-decada].active .n{ color:var(--on-accent); opacity:.75; }
+
+  .status-line{
+    margin-top:10px;
+    font-size:12.5px;
+    color:var(--muted);
+    min-height:16px;
+  }
+  .status-line b{ color:var(--ink); font-weight:600; }
+
+  .cloud{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:9px;
+    margin-block:26px;
+  }
+  .cloud .pill{
+    order:0;
+    transition:
+      opacity .35s ease,
+      transform .35s cubic-bezier(.22,.68,0,1.01),
+      border-color .2s ease,
+      background .2s ease;
+  }
+  .pill{
+    appearance:none;
+    border:1px solid var(--chip-border);
+    background:var(--paper-raised);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:13.5px;
+    padding:8px 13px;
+    border-radius:10px;
+    cursor:pointer;
+    text-align:left;
+    line-height:1.25;
+    white-space:nowrap;
+  }
+  .pill.bridge{ font-weight:600; border-color:var(--gold); }
+  .pill.confirmado::after{
+    content:"";
+    display:inline-block;
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--gold-bright);
+    margin-left:7px;
+    vertical-align:middle;
+  }
+  .pill:hover{ border-color:var(--gold); }
+  .pill.match{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+    transform:scale(1.05);
+    z-index:2;
+  }
+  .pill.match.bridge{ border-color:var(--gold-bright); }
+  .pill.match.decada-color{
+    background:var(--paper-raised);
+    color:var(--dc);
+    border-color:var(--dc);
+  }
+  .pill.match.decada-color::after{
+    content:"";
+    display:inline-block;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--dc);
+    margin-left:7px;
+    vertical-align:middle;
+  }
+  .pill.dim{
+    display:none;
+  }
+  .pill.has-decada{
+    border-left:4px solid var(--dc);
+    padding-left:10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cloud.ready .pill{ transition:opacity .2s ease; }
+  }
+
+  .infobar-backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(20,8,12,.45);
+    z-index:55;
+    display:none;
+  }
+  .infobar-backdrop.show{ display:block; }
+  .infobar{
+    position:fixed;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:min(720px, 100%);
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:16px 16px 0 0;
+    padding:0 20px 20px;
+    box-shadow:0 -8px 28px rgba(0,0,0,.24);
+    display:none;
+    max-height:min(82vh, 82dvh);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    z-index:60;
+  }
+  .infobar.show{ display:block; }
+  @media (min-width: 720px){
+    .infobar{
+      top:50%;
+      bottom:auto;
+      transform:translate(-50%, -50%);
+      border-radius:16px;
+      max-height:80vh;
+    }
+  }
+  .infobar-top{
+    position:sticky;
+    top:0;
+    background:var(--paper-raised);
+    padding:14px 0 8px;
+    margin-bottom:4px;
+    display:flex;
+    justify-content:flex-end;
+    z-index:2;
+  }
+  .infobar .close{
+    border:1px solid var(--chip-border);
+    background:var(--chip-bg);
+    color:var(--ink);
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    padding:7px 13px;
+    border-radius:8px;
+  }
+  .infobar h3{
+    margin:0 6px 4px 0;
+    font-family:'EB Garamond', serif;
+    font-size:21px;
+    color:var(--ink);
+    display:inline;
+  }
+  .badge{
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border-radius:999px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .badge.ok{ background:var(--ok-bg); color:var(--ok-text); }
+  .badge.no{ background:var(--no-bg); color:var(--no-text); }
+  .nota{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin:12px 0 14px;
+    max-width:74ch;
+  }
+  .linkrow{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+  .linkrow a{
+    font-size:12.5px;
+    color:var(--link);
+    text-decoration:none;
+    border:1px solid var(--chip-border);
+    padding:6px 11px;
+    border-radius:8px;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+  }
+  .linkrow a:hover{ border-color:var(--link); background:var(--chip-bg); }
+  .section-label{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  .cloud-label{ margin-top:24px; }
+  .themetags{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+  .themetag{
+    font-size:12px;
+    background:var(--chip-bg);
+    border:1px solid var(--chip-border);
+    color:var(--chip-text);
+    padding:4px 10px;
+    border-radius:999px;
+  }
+  .occlist{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; }
+  .occlist li{
+    font-size:13px;
+    color:var(--ink-soft);
+    border-left:2px solid var(--line);
+    padding-left:10px;
+  }
+  .occlist .tit{ color:var(--ink); }
+  .occlist .meta{ color:var(--muted); font-size:12px; }
+
+  footer{
+    margin-top:30px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+
+  .funding{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    align-items:center;
+  }
+  .funding-logos{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    align-items:center;
+    flex-shrink:0;
+  }
+  .funding-logos img{
+    height:44px;
+    width:auto;
+    max-width:120px;
+    object-fit:contain;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:6px 10px;
+  }
+  .funding-text{
+    flex:1 1 420px;
+    min-width:260px;
+    font-size:12px;
+    line-height:1.65;
+    color:var(--muted);
+  }
+  .funding-text b{ color:var(--ink-soft); font-weight:600; }
+  .funding-text a{ color:var(--link); text-decoration:none; }
+  .funding-text a:hover{ text-decoration:underline; }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Montessorismo no Brasil &middot; Repositório de fontes hemerográficas</p>
+    <h1>Quem escreveu sobre o quê</h1>
+    <p class="lede">85 autores identificados em periódicos brasileiros (1900&ndash;1959) que publicaram sobre o sistema pedagógico de Maria Montessori. As categorias vêm das temáticas atribuídas registro a registro no próprio levantamento hemerográfico; a periodicidade reflete as décadas em que cada publicação foi localizada. Selecione uma categoria e/ou um período para filtrar os sujeitos abaixo: os que correspondem permanecem visíveis e se reúnem no centro, os demais são ocultados. Cada nome traz uma borda na cor de sua década, a mesma cor do período correspondente. Um ponto bordô marca autores com biografia confirmada por fonte externa; bordas bordô marcam quem transita por mais de uma temática. Clique em um nome para ver a nota biográfica, as fontes e as ocorrências completas no levantamento.</p>
+    <div class="stats" id="statsRow"></div>
+  </header>
+
+  <div class="filters">
+    <p class="section-label filters-label">Categorias</p>
+    <div class="filters-row" id="filterRow"></div>
+    <p class="section-label filters-label filters-label-2">Periodicidade</p>
+    <div class="filters-row" id="filterRowDecada"></div>
+    <p class="status-line" id="statusLine"></p>
+  </div>
+
+  <p class="section-label cloud-label">Sujeitos</p>
+  <div class="cloud" id="cloud"></div>
+
+  <div class="infobar-backdrop" id="infobarBackdrop"></div>
+  <div class="infobar" id="infobar">
+    <div class="infobar-top">
+      <button class="close" id="infoClose" aria-label="Fechar">fechar &times;</button>
+    </div>
+    <div id="infoBody"></div>
+  </div>
+
+  <footer>
+    As temáticas foram atribuídas registro a registro no levantamento hemerográfico original (coluna &laquo;Temática&raquo;); aqui, cada autor herda as temáticas dos textos que assina. As notas biográficas foram verificadas por busca externa (Wikipédia, SciELO, CPDOC/FGV, HISTEDBR, repositórios universitários e outras fontes), com link direto sempre que localizado; nenhuma informação foi inferida sem confirmação em fonte. Onde a busca não retornou identificação segura, a nota indica &laquo;informação não localizada&raquo;.
+  </footer>
+
+  <div class="funding">
+    <div class="funding-logos">
+      <img src="assets/proped.png" alt="ProPEd &ndash; Programa de Pós-Graduação em Educação (UERJ)">
+      <img src="assets/nephe.jpg" alt="NEPHE &ndash; Núcleo de Ensino e Pesquisa em História da Educação">
+      <img src="assets/uff.png" alt="Universidade Federal Fluminense">
+      <img src="assets/cnpq.jpg" alt="CNPq &ndash; Conselho Nacional de Desenvolvimento Científico e Tecnológico">
+    </div>
+    <p class="funding-text">
+      O presente trabalho foi realizado com o apoio do Conselho Nacional de Desenvolvimento Científico e Tecnológico &ndash; CNPq (processo n&ordm; 150348/2025-8). As informações aqui disponibilizadas referem-se a parte dos resultados da pesquisa de pós-doutorado intitulada <b>&laquo;Educar as crianças para uma nova era: circulação e apropriação do pensamento montessoriano no Brasil em confluência com o movimento internacional da educação nova&raquo;</b>, desenvolvido pelo prof. Dr. Vinicius de Moraes Monção (UFF), no Programa de Pós-Graduação em Educação da UERJ, no Núcleo de Ensino e Pesquisa em História da Educação (NEPHE), sob supervisão do prof. Dr. José Gonçalves Gondra.<br>
+      Contato: <a href="mailto:viniciusmoncao@id.uff.br">viniciusmoncao@id.uff.br</a>
+    </p>
+  </div>
+</div>
+
+<script>
+const DATA = {"temas":["Método montessoriano","Temas em pedagogia","Nota biográfica","Sistemas de ensino","Educação pré-escolar","Infâncias","Conferências","Viagem","Curso","Cinema Educativo","Maria Montessori","Palestra","Congresso","Escolas","Trecho de obra","Associação Montessori do Brasil","Teosofia","Escola Nova","Infância anormal","Mulheres","Periódico","Carta","carta","Entrevista","Escola montessoriana","Homenagem","Obtuário","Bibliotecas","Desenho infantil","Ensino de música","Higiene mental","Ofício","Psicologia Infantil","Tese","Variedade","Debate legislativo","Ficha de atividade","Escola Normal Anhanguera","Sociedade de Educação"],"pessoas":[{"nome":"Eny Caldeira","nota":"Nasceu em 23 de janeiro de 1912 em Prudentópolis (PR) e faleceu em 2002; atuou em Curitiba (PR). Formou-se pela Escola Normal Secundária de Curitiba (1935) e em Pedagogia pela UFPR (1941); no início dos anos 1950 estudou o método Montessori, tendo também estagiado no Institut Jean-Jacques Rousseau, em Genebra. Foi a primeira mulher a dirigir o Instituto de Educação do Paraná (fontes indicam o período 1952 a 1954, com alguma variação para 1955 em outras referências) e criou a Escola Experimental Maria Montessori; presidiu a seção paranaense da Associação Montessori do Brasil e depois teve longa carreira como professora da UFPR (1960 a 1991).","links":["https://curitibadegraca.com.br/mulheres-paranaenses-eny-caldeira-por-uma-educacao-mais-bela-e-humana/","https://www.scielo.br/j/er/a/4YWGRX7Rvc9bbdp9VzvpFYJ/","https://acervodigital.ufpr.br/handle/1884/30350","https://www.chaodaescola.com.br/rce/article/view/89"],"confirmado":true,"temas":["Associação Montessori do Brasil","Entrevista","Nota biográfica","Obtuário"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"O Dia","titulo":"Fundação da AMB, seção do Paraná (entrevista com Eny Caldeira).","decada":"1950-1959","tema":"Associação Montessori do Brasil"},{"periodico":"Jornal do Brasil","titulo":"\"É preciso humanizar a escola primária\": entrevista com Eny Caldeira, que estudou Psicopedagogia na Universidade de Perúgia com Maria Montessori, estagiou na Universidade de Roma (Instituto Jean-Jacques Rousseau) e assistiu a cursos de psicologia da criança na Sorbonne.","decada":"1950-1959","tema":"Entrevista"},{"periodico":"A Divulgação","titulo":"\"Maria Montessori: a maior educadora do século.\"","decada":"1950-1959","tema":"Nota biográfica"},{"periodico":"O Theosophista","titulo":"Maria Montessori – a maior educadora do mundo\"","decada":"1950-1959","tema":"Obtuário"}]},{"nome":"Piper de Lacerda Borges","nota":"Nasceu no Rio de Janeiro em 14 de novembro de 1907 e faleceu em 4 de abril de 1968. Formada em química, trabalhou no laboratório Park Davis antes de se dedicar à pedagogia montessoriana; estudou diretamente com Maria Montessori no curso internacional de Perugia (Itália) em 1950, fundou e presidiu a Associação Montessori do Brasil (1950) e fundou a Escola Experimental Montessori, além de proferir palestras sobre o método em diversos estados brasileiros.","links":["https://www.montessoribrasil.com.br/post/a-pioneira-do-m%C3%A9todo-montessori-no-brasil","https://repositorio.ufsc.br/bitstream/handle/123456789/186514/PEED1279-T.pdf"],"confirmado":true,"temas":["Associação Montessori do Brasil","Conferências","Curso","Palestra","Teosofia","Viagem"],"decadas":["1940-1949","1950-1959"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"Anúncio de jardim de infância montessoriano de Piper, no centro do Rio, na AMB.","decada":"1950-1959","tema":"Associação Montessori do Brasil"},{"periodico":"Diário da Tarde","titulo":"Maria Montessori e a Formação da professora","decada":"1940-1949","tema":"Conferências"},{"periodico":"O Theosophista","titulo":"Sobre o 7º Congresso Nacional de Teosofia (Bahia, 21/11/1949); tese \"A influência do Método Montessori na formação da personalidade humana e no apuro da raça\" (Loja Lumen, RJ); publicada na edição de 1950.","decada":"1940-1949","tema":"Teosofia"},{"periodico":"Correio da Manhã","titulo":"Chamada para palestra sobre Maria Montessori e \"o segredo da infância\", na Sociedade Pestalozzi do Brasil.","decada":"1950-1959","tema":"Palestra"},{"periodico":"Diário da Noite","titulo":"Curso \"Processos didáticos e a obra de Maria Montessori\".","decada":"1950-1959","tema":"Curso"},{"periodico":"A Noite","titulo":"\"Renovação real dos processos educacionais\": entrevista com Piper; promessa de que Montessori viria ao Brasil em \"outubro próximo\" (1951?), com cursos e conferências patrocinados pela Secretaria Geral de Educação e Cultura e pela ABE.","decada":"1950-1959","tema":"Viagem"},{"periodico":"Diário da Tarde","titulo":"\"Palestras preparatórias à apresentação da famosa educadora Maria Montessori\" (palestra de Piper em Curitiba).","decada":"1950-1959","tema":"Viagem"},{"periodico":"A Tribuna","titulo":"\"Educadoras brasileiras vão assistir a um curso da famosa Maria Montessori\": entrevista com Piper.","decada":"1950-1959","tema":"Viagem"},{"periodico":"A Tarde","titulo":"Palestra de Piper em Curitiba.","decada":"1950-1959","tema":"Palestra"}]},{"nome":"Francisco Stobbia","nota":"Francisco Stobbia, nascido na ilha de Sardenha em 30 de dezembro de 1881. Chegou ao Brasil em 1920 como redator do “Órgão italiano Fanfula” em São Paulo e em 1925 mudou-se para Curitiba onde “leciona em todos os ginásios e colégios da capital”, e tornou-se articulista do jornal Diário da Tarde (PR), aposentou-se em 1952 como professor de língua e literatura italiana da Universidade Federal do Paraná, recebeu em 1959 o diploma de cidadão honorário de Curitiba.","links":["https://acervodigital.ufpr.br/xmlui/bitstream/handle/1884/85557/R_G_RAFAELLA_RIESEMBERG.pdf?sequence=1&isAllowed=y"],"confirmado":true,"temas":["Bibliotecas","Nota biográfica","Temas em pedagogia"],"decadas":["1930-1939","1940-1949","1950-1959"],"ocorrencias":[{"periodico":"Diário da Tarde","titulo":"\"Machado de Assis, Romancista\", de Armando Correia Pacheco: Profa. Gelvira, divulgadora do sistema pedagógico de Montessori.","decada":"1950-1959","tema":"Temas em pedagogia"},{"periodico":"Diário da Tarde","titulo":"Artigo sobre bibliotecas, com referência a Montessori.","decada":"1950-1959","tema":"Bibliotecas"},{"periodico":"Diário da Tarde","titulo":"Maria Montessori e a semana da criança","decada":"1940-1949","tema":"Nota biográfica"},{"periodico":"Diário da Tarde","titulo":"Sobre \"Machado de Assis, romancista\", de Armando Correia Pacheco: comenta a Profa. Gelvira, divulgadora do sistema Montessori.","decada":"1940-1949","tema":"Temas em pedagogia"},{"periodico":"Diário da Tarde","titulo":"\"O retrato de Maria Montessori\".","decada":"1930-1939","tema":"Nota biográfica"},{"periodico":"Diário da Tarde","titulo":"\"Maria Montessori.\"","decada":"1950-1959","tema":"Nota biográfica"}]},{"nome":"Giulio Santini","nota":"Informação não localizada. Não foi encontrado vínculo confirmado com o campo educativo brasileiro ou com a recepção de Montessori na imprensa.","links":[],"confirmado":false,"temas":["Cinema Educativo"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"A Escola Primária","titulo":"Referência a Montessori em texto sobre cinema educativo (tradução livre).","decada":"1930-1939","tema":"Cinema Educativo"},{"periodico":"A Escola Primária","titulo":"Cinema educativo","decada":"1930-1939","tema":"Cinema Educativo"}]},{"nome":"Sergio Barretto Filho","nota":"Sergio Barreto Filho, em 1929, tornou-se responsável pela seção “Cinema de Amadores” que anteriormente era denominada “Um pouco de Técnica”. Nessa seção, os amadores podiam ter conhecimento da técnica cinematográfica, dos novos equipamentos e trocar experiências com outros cineastas amadores. Barreto era considerado um grande conhecedor da técnica cinematográfica e funcionava como uma espécie de instrutor de como fazer um filme, educava para o cinema e também fazia comentários a respeito de como os filmes poderiam servir para a educação do povo brasileiro de uma forma geral. Em 1931, ele assume também a coluna “Cinema Educativo”, que tinha por objetivo publicar artigos de educadores ao redor do mundo, foi inaugurada em 30 de setembro de 1931 com a transcrição de algumas palavras dos educadores Jonathas Serrano e Francisco Venâncio Filho a respeito do uso do cinema na educação.","links":["http://bocc.ufp.pt/pag/catelli-rosana-2013-revista-cinearte.pdf"],"confirmado":true,"temas":["Cinema Educativo"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Cinearte","titulo":"\"Cinema Educativo, o Film e o ensino\", com referência a Montessori.","decada":"1930-1939","tema":"Cinema Educativo"}]},{"nome":"Antonia Ribeiro de Castro Lopes","nota":"(1874-1971). Filha de Manoela Joaquim Ribeiro de Castro e Maria da Conceição Peixodo de Castro. Casou-se com Honório Lopes da Costa, com quem teve três filhas. Antonia era  catedrática  da  Escola  Normal  de  Campos,  foi  uma  destacada  professora  no contexto  campista  e quiçá  nacional.  Mantinha  contato  com Édouard  Cleparède  (1873-1940),  e  foi aluna do Instituto Jean Jacques Rousseau, em Genebra. Ao retornar ao Brasil fundou do Instituto Cleparède, instituição estabelecida pela perspectiva da Educação Nova onde a criança era o centro do processo de ensino-aprendizagem.","links":["https://www.periodicos.ufrn.br/histela/article/view/23477/13548"],"confirmado":true,"temas":["Conferências"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Jornal do Commercio","titulo":"Educação Sanitária","decada":"1920-1929","tema":"Conferências"}]},{"nome":"Moncorvo Filho","nota":"Refere-se a Carlos Arthur Moncorvo Filho, médico pediatra nascido no Rio de Janeiro em 13 de setembro de 1871 e falecido em 14 de maio de 1944. Formou-se em medicina em 1897 e fundou, em 1899, o Instituto de Proteção e Assistência à Infância do Rio de Janeiro, sendo figura central na puericultura e na assistência à infância no Brasil; presidiu a Sociedade Brasileira de Pediatria em 1933.","links":["https://www.sbp.com.br/patronos/carlos-arthur-moncorvo-filho-1871-1944/","https://www.scielo.br/j/hcsm/a/pMzXR6Xv9xBJgG9gyc4ZrZv/abstract/?lang=pt"],"confirmado":true,"temas":["Conferências"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Illustração Brasileira","titulo":"Criança e o brinquedo","decada":"1920-1929","tema":"Conferências"}]},{"nome":"Maria Montessori","nota":"Maria Montessori (31 de agosto de 1870, Chiaravalle, Itália; 6 de maio de 1952) foi médica, educadora e pedagoga italiana, uma das primeiras mulheres a se formar em medicina na Itália (1896). Trabalhou inicialmente com crianças com deficiência em clínica universitária e, posteriormente, criou a Casa dei Bambini, onde desenvolveu seu método pedagógico baseado na liberdade, na atividade da criança e na educação sensorial como base da educação intelectual. O método Montessori alcançou reconhecimento mundial e continua sendo aplicado em escolas até hoje.","links":["https://pt.wikipedia.org/wiki/Maria_Montessori"],"confirmado":true,"temas":["Conferências","Escola Normal Anhanguera","Homenagem","Maria Montessori","Trecho de obra"],"decadas":["1940-1949","1950-1959"],"ocorrencias":[{"periodico":"O Theosophista","titulo":"A criança, como revelação","decada":"1940-1949","tema":"Conferências"},{"periodico":"O Theosophista","titulo":"Erros do passado","decada":"1940-1949","tema":"Maria Montessori"},{"periodico":"O Theosophista","titulo":"","decada":"1940-1949","tema":"Maria Montessori"},{"periodico":"O Theosophista","titulo":"A casa da criança","decada":"1940-1949","tema":"Maria Montessori"},{"periodico":"Correio Paulistano","titulo":"Resposta de Montessori aos alunos da Escola Normal Anhanguera, carta enviada de Amsterdã; menciona convite do governo brasileiro para dar, no verão seguinte, um curso de preparação de professores no Rio de Janeiro.","decada":"1950-1959","tema":"Homenagem"},{"periodico":"O Theosophista","titulo":"Mensagem de Montessori aos alunos da Escola Normal Anhanguera; comenta que foi convidada pelo governo para dar um curso de formação de professores no Rio de Janeiro no ano seguinte (1952).","decada":"1950-1959","tema":"Escola Normal Anhanguera"},{"periodico":"O Theosophista","titulo":"O mestre e a criança","decada":"1940-1949","tema":"Trecho de obra"},{"periodico":"O Theosophista","titulo":"A missão dos pais","decada":"1940-1949","tema":"Trecho de obra"},{"periodico":"Diário de Natal","titulo":"\"A solidariedade humana.\"","decada":"1950-1959","tema":"Trecho de obra"}]},{"nome":"Sylvio Rabello","nota":"Sylvio de Lyra Rabello nasceu em 29 de novembro de 1899, em Aliança (PE), e morreu em 1972, no Recife. Formou-se em Direito e Ciências Sociais pela Faculdade de Direito do Recife (1922) e atuou como professor catedrático de Psicologia no Instituto de Educação de Pernambuco desde 1926 e na Faculdade de Filosofia da Universidade do Recife a partir de 1950. Foi ainda Diretor do Departamento de Educação de Pernambuco (1948) e Secretário de Educação e Cultura de Pernambuco (1949 a 1950).","links":["http://newpsi.bvs-psi.org.br/ebooks2010/pt/Sylvio_Rabello.html","https://pesquisaescolar.fundaj.gov.br/en/artigo/sylvio-rabello/"],"confirmado":true,"temas":["Desenho infantil","Escola montessoriana","Sistemas de ensino"],"decadas":["1920-1929","1930-1939"],"ocorrencias":[{"periodico":"Archivos da Assistencia a Psychopathas de Pernambuco","titulo":"\"O desenho como meio de pesquisa\".","decada":"1930-1939","tema":"Desenho infantil"},{"periodico":"O Jornal","titulo":"Aspectos do ensino público em Pernambuco","decada":"1920-1929","tema":"Sistemas de ensino"},{"periodico":"A Província","titulo":"As nossas escolas montessorianas","decada":"1920-1929","tema":"Escola montessoriana"}]},{"nome":"F. R.","nota":"Informação não localizada (iniciais insuficientes para identificação segura).","links":[],"confirmado":false,"temas":["Educação pré-escolar"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"O Paiz","titulo":"Educação pré-escolar. A casa da creança brasileira. O trabalho infantil.","decada":"1920-1929","tema":"Educação pré-escolar"}]},{"nome":"Carolina Pickler","nota":"Informação não localizada. A busca não retornou nenhuma fonte biográfica relacionada a esse nome; os resultados trouxeram apenas homônimos de sobrenome sem relação identificável.","links":[],"confirmado":false,"temas":["Educação pré-escolar"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Vida Capichaba","titulo":"Escolas maternaes. O princípio da nova educação, psychologia da creança","decada":"1920-1929","tema":"Educação pré-escolar"},{"periodico":"Vida Capichaba","titulo":"Escolas maternaes. O princípio da nova educação, psychologia da creança","decada":"1920-1929","tema":"Educação pré-escolar"}]},{"nome":"Azurita R. de Britto","nota":"Professora do Instituto La Fayette (RJ), atuou na Cruzada Pedagógica pela Escola Nova.","links":["https://educa.fcc.org.br/scielo.php?script=sci_arttext&pid=S2177-62102018000300279"],"confirmado":true,"temas":["Educação pré-escolar"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"A Escola Primaria","titulo":"Escolas maternaes e suas vantagens","decada":"1920-1929","tema":"Educação pré-escolar"},{"periodico":"A Escola Primária","titulo":"Escolas maternais e suas vantagens","decada":"1920-1929","tema":"Educação pré-escolar"}]},{"nome":"Guilherme Catramby","nota":"Informação não localizada; a busca retorna apenas um atleta olímpico homônimo, sem relação aparente com o campo educativo.","links":[],"confirmado":false,"temas":["Educação pré-escolar"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Arealense","titulo":"As escolas maternais e o seu ensino","decada":"1920-1929","tema":"Educação pré-escolar"}]},{"nome":"Annete C. P. Macedo","nota":"Annette Portugal Macedo nasceu no Alto do São Francisco, Curitiba, na segunda-feira, 3 de dezembro de 1894. Filha do Dr. Francisco de Azevedo Macedo e de d. Clotilde Portugal Macedo. Aprendeu a ler em casa com a ajuda de sua avó materna e quando entrou na Escola Americana de Curitiba, destacou-se como excelente aluna. Também estudou no Colégio Santos Dumont e logo após ingressou na Escola Normal de Curitiba na qual diplomou-se em 1911. Em 1916 foi designada como auxiliar da cadeira de Pedagogia na Escola Normal de Curitiba e em 1918 foi diretora no Grupo Escolar Rio Branco. De auxiliar na Escola Normal, passou a professora catedrática da instituição quando defendeu a tese “Felicidade pela Educação”, passando assim, a lecionar as disciplinas: sociologia, didática, pedagogia, metodologia prática de ensino, higiene e agronomia. Em 1931, como professora de pedagogia num curso especial da Escola Normal, teve como aluna a futura poetisa Helena Kolody.","links":["https://pt.wikipedia.org/wiki/Annette_Clotilde_Portugal_Macedo"],"confirmado":true,"temas":["Educação pré-escolar"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"Diário da Tarde","titulo":"A creança e o jardim da infância","decada":"1940-1949","tema":"Educação pré-escolar"}]},{"nome":"Teobaldo Miranda Santos","nota":"Nascido em Campos (RJ), sem data de nascimento localizada com precisão; morreu em 21 ou 22 de março de 1971, aos 66 anos. Estudou em Juiz de Fora (MG) e lecionou na Escola Normal de Manhuaçu antes de atuar em Campos e, a partir de 1938, no Rio de Janeiro. Foi professor catedrático do Liceu de Campos, diretor do Departamento de Educação Municipal de Campos e professor de Filosofia da Educação na Universidade do Distrito Federal (1938), no Instituto de Educação, na Faculdade de Filosofia Santa Úrsula e na Universidade Católica; foi também Secretário de Educação na administração Henrique Dodsworth e autor de numerosos livros didáticos de pedagogia e psicologia da educação.","links":["https://www.recantodasletras.com.br/artigos-de-educacao/4766401"],"confirmado":true,"temas":["Educação pré-escolar"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"A Manhã","titulo":"A educação pré-escolar no distrito Federal","decada":"1940-1949","tema":"Educação pré-escolar"}]},{"nome":"Magdala de Souza Pinto","nota":"Informação não localizada. As buscas retornaram apenas homônimos parciais não confirmados (como Miriam de Magdala Pinto, pessoa contemporânea sem relação demonstrada com o período pesquisado).","links":[],"confirmado":false,"temas":["Ensino de música"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Aspectos: mensário de letras, artes, sciencias, política...","titulo":"Tendências modernas da pedagogia musical","decada":"1930-1939","tema":"Ensino de música"}]},{"nome":"A. Renius","nota":"Conteúdo não localizado","links":[],"confirmado":true,"temas":["Escola Nova"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Correio da Manhã","titulo":"A face da terra. A chamada escola nova","decada":"1930-1939","tema":"Escola Nova"}]},{"nome":"José Neves","nota":"Conteúdo não localizado","links":[],"confirmado":true,"temas":["Escola Nova"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Diário de Notícias","titulo":"Luthero ou Papa? As contradições de Leaders da Escola Nova","decada":"1930-1939","tema":"Escola Nova"}]},{"nome":"Adalberto Lira Cavalcanti","nota":"Ex-diretor do Hospital de Alienados de Recife, técnico de saúde escolar da Prefeitura do Distrito Federal.","links":["https://www.scielo.br/j/hcsm/a/W35yWWDpbsVyNMRBhBQZSLw/?lang=pt"],"confirmado":true,"temas":["Higiene mental"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Archivos da Assistencia a Psychopathas de Pernambuco","titulo":"Referência a Montessori em \"Considerações sobre a higiene mental da criança no período escolar\".","decada":"1930-1939","tema":"Higiene mental"}]},{"nome":"Clemente Quaglio","nota":"Viveu de 1872 a 1948 e atuou em São Paulo (SP), estando associado à psicologia escolar e à psicometria nas escolas normais paulistas; é patrono de uma cadeira em instituição ligada à história da psicologia em São Paulo. A fonte localizada (PePSIC) confirma o artigo \"Sobre Clemente Quaglio (1872-1948): notas de pesquisa\", mas o texto integral não foi obtido nesta busca, apenas o registro indexado.","links":["https://pepsic.bvsalud.org/scielo.php?script=sci_arttext&pid=S1415-711X2007000200004"],"confirmado":true,"temas":["Infâncias"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Arthur Moncorvo Filho: Teses e artigos","titulo":"Nova concepção psychologica da creança (nova orientação pedagógica)","decada":"1920-1929","tema":"Infâncias"}]},{"nome":"Rachel Prado","nota":"Informação não localizada. Não foram encontrados registros biográficos de uma Rachel Prado ligada ao campo educativo brasileiro do período pesquisado; os resultados da busca correspondem a pessoas homônimas contemporâneas sem relação (ex.: docentes e profissionais atuais nos Estados Unidos).","links":[],"confirmado":false,"temas":["Infâncias"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Revista da Semana","titulo":"Sobre creanças","decada":"1920-1929","tema":"Infâncias"}]},{"nome":"Diva de Miranda Moura","nota":"Informação não localizada. Um resultado de leilão (eBay) menciona uma fotografia antiga rotulada com esse nome associada ao Brasil dos anos 1950, mas não há confirmação biográfica alguma; trata-se apenas de um indício não verificado, não incluído como fonte confiável.","links":[],"confirmado":false,"temas":["Infâncias"],"decadas":["1930-1939","1940-1949"],"ocorrencias":[{"periodico":"Correio da Manhã","titulo":"\"O segredo da infância\".","decada":"1930-1939","tema":"Infâncias"},{"periodico":"O Fluminense","titulo":"\"O segredo da infância\".","decada":"1930-1939","tema":"Infâncias"},{"periodico":"Reação Brasileira","titulo":"O segredo da infância","decada":"1940-1949","tema":"Infâncias"},{"periodico":"Boletim do Ministério do Trabalho, Indústria e Comércio","titulo":"O segredo da infância","decada":"1940-1949","tema":"Infâncias"}]},{"nome":"C. Jinarajadasa","nota":"Curuppumullage Jinarājadāsa nasceu em 16 de dezembro de 1875 no Ceilão (atual Sri Lanka) e faleceu em junho de 1953. Estudou línguas orientais em Cambridge e na Universidade de Pavia; foi teósofo, poeta e escritor, quarto presidente internacional da Sociedade Teosófica (Adyar, 1946-1953), vice-presidente da entidade (1921-1928), editor da revista The Theosophist e fundador da School of the Wisdom (1949), atuando por décadas como conferencista internacional ligado à divulgação de ideias teosóficas e educacionais.","links":["https://www.ts-adyar.org/c-jinarajadasa-1875-1953","https://en.wikipedia.org/wiki/Curuppumullage_Jinarajadasa","https://www.theosophical.org/component/content/article?id=1522%3Ac-jinarajadasa"],"confirmado":true,"temas":["Congresso","Teosofia"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"O Theosophista","titulo":"As crianças – agentes de Deus","decada":"1940-1949","tema":"Teosofia"},{"periodico":"O Theosophista","titulo":"O sistema montessori","decada":"1940-1949","tema":"Congresso"}]},{"nome":"Astério de Campos","nota":"Astério Barbosa Gomes de Campos) foi um advogado, jornalista, poeta, crítico literário e professor brasileiro nascido na Bahia em 1891 e falecido no Rio de Janeiro em 1968. Ele também é o autor do artigo pedagógico \"Por que mentem as crianças\", publicado em 1945 na Revista Brasileira de Estudos Pedagógicos","links":["https://www.antoniomiranda.com.br/poesia_brasis/bahia/asterio_de_campos.html"],"confirmado":true,"temas":["Infâncias","Temas em pedagogia"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"Gazeta de Notícias","titulo":"Por que as crianças mentem","decada":"1940-1949","tema":"Infâncias"},{"periodico":"Gazeta de Notícias","titulo":"A mulher de fogo","decada":"1940-1949","tema":"Temas em pedagogia"}]},{"nome":"Wagner Eleutério","nota":"Médico sanitarista","links":[],"confirmado":true,"temas":["Infâncias"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"O Acre","titulo":"\"Hábitos sadios na infância e sua influência na esfera psíquica.\"","decada":"1950-1959","tema":"Infâncias"}]},{"nome":"Basílio de Magalhães","nota":"Nasceu em 1 de junho de 1874, no distrito de Barroso, termo de Barbacena (MG), e faleceu em 14 de dezembro de 1957. Formou-se engenheiro pela Escola de Minas de Ouro Preto e atuou depois como professor de história em São Paulo e no Rio de Janeiro; foi historiador, folclorista e geógrafo, 27º diretor do Instituto de Educação do Rio de Janeiro, diretor interino da Biblioteca Nacional (1917-1918), deputado federal por Minas Gerais e membro do Instituto Histórico e Geográfico Brasileiro.","links":["https://pt.wikipedia.org/wiki/Bas%C3%ADlio_de_Magalh%C3%A3es","https://ihgsaojoaodelrei.org.br/basilio-de-magalhaes-patrono-mor-do-ihg-sjdr/","https://cpdoc.fgv.br/sites/default/files/verbetes/primeira-republica/MAGALH%C3%83ES,%20Bas%C3%ADlio%20de.pdf"],"confirmado":true,"temas":["Infância anormal","Sistemas de ensino"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Correio Paulistano","titulo":"A educação da infância normal e das crianças mentalmente atrasadas na América Latina.","decada":"1910-1919","tema":"Infância anormal"},{"periodico":"Revista do Magistério","titulo":"Reforma do ensino no Brasil","decada":"1910-1919","tema":"Sistemas de ensino"}]},{"nome":"A. C. Vieira","nota":"Informação não localizada. As iniciais são insuficientes e as buscas não retornaram nenhuma pessoa identificável com vínculo educacional ou ligação a Montessori que corresponda a essas iniciais.","links":[],"confirmado":false,"temas":["Infância anormal","Sistemas de ensino"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Educação e Pediatria","titulo":"A assistência educativa dos anormais psychicos","decada":"1910-1919","tema":"Infância anormal"},{"periodico":"O Agrário","titulo":"Como se educa na Europa","decada":"1910-1919","tema":"Sistemas de ensino"}]},{"nome":"Edith Hare","nota":"Informação não localizada. Nenhuma fonte biográfica correspondente a esse nome foi encontrada; a busca associada a Montessori/educação não retornou correspondência confiável.","links":[],"confirmado":false,"temas":["Método montessoriano"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Correio da Manhã","titulo":"\"Os métodos que transformaram a educação das criancinhas\".","decada":"1950-1959","tema":"Método montessoriano"},{"periodico":"Correio da Manhã","titulo":"Os métodos que transformaram a educação das criancinhas","decada":"1950-1959","tema":"Método montessoriano"}]},{"nome":"Fábio Luz","nota":"Nasceu em 31 de julho de 1864, em Valença (BA), e faleceu em 9 de maio de 1938; formou-se em medicina pela Faculdade de Medicina da Bahia (1883 a 1888, com tese em 1888) e atuou no Rio de Janeiro (bairro do Méier). De formação médica, lecionou francês, português, história e latim no Colégio Pedro II; foi também escritor, jornalista e um dos mais notáveis propagandistas do anarquismo na Primeira República brasileira, tendo sido preso em 1920 por colaboração em jornal anarquista.","links":["https://pt.wikipedia.org/wiki/F%C3%A1bio_Luz"],"confirmado":true,"temas":["Método montessoriano"],"decadas":["1910-1919","1930-1939"],"ocorrencias":[{"periodico":"A Escola Primária","titulo":"Ideias e fatos\nCase dei Bambini\n(Vagas considerações e extratos de comentadores a propósito da Doutora Maria Montessori e de seu sistema educativo)","decada":"1910-1919","tema":"Método montessoriano"},{"periodico":"Gazeta de Notícias","titulo":"\"Case dei Bambini\": ligeiros comentários a propósito do sistema educativo da Dra. Maria Montessori (parte 1).","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"Gazeta de Notícias","titulo":"\"Case dei Bambini\" (parte 3).","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"Gazeta de Notícias","titulo":"\"Case dei Bambini\" (parte 4).","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"Gazeta de Notícias","titulo":"\"Case dei Bambini\" (inspetor escolar aposentado).","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"Gazeta de Notícias","titulo":"\"Case dei Bambini\" (parte 6).","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"Gazeta de Notícias","titulo":"\"Case dei Bambini\" (conclusão).","decada":"1930-1939","tema":"Método montessoriano"}]},{"nome":"Aurea Corrêa de Martinez","nota":"Professora primária municipal no Rio de Janeiro, atuante entre fins do século XIX e início do século XX (datas de nascimento e morte não localizadas). Também identificada nas fontes como Aurea Corrêa Villares Ferreira/Martinez, construiu ampla rede de sociabilidade a partir de sua atuação no magistério primário e de lutas políticas; defendeu direitos docentes e melhorias escolares, fez propaganda socialista, participou das eleições presidenciais de 1910 e foi cofundadora da Associação Escola Moderna, sendo a única oradora mulher a participar de eventos de divulgação dessa iniciativa, nos quais defendeu a educação racionalista para mulheres. Publicou artigos, sobretudo na Gazeta de Notícias. Fonte: RIZZINI, Irma; SCHUELER, Alessandra Frota Martinez de. \"O Feminismo Transborda\": Docência, Produção Escrita e Atuação Política de Aurea Corrêa na Cidade do Rio de Janeiro. Práxis Educacional, v. 16, n. 38, p. 42-65, 2020.","links":["https://periodicos2.uesb.br/index.php/praxis/article/view/5987"],"confirmado":true,"temas":["Método montessoriano"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Gazeta de Notícias","titulo":"O systema Montessori: escrever antes de ler.","decada":"1910-1919","tema":"Método montessoriano"}]},{"nome":"Agostinho Campos","nota":"Provável referência a Agostinho de Campos (1870, Porto, Portugal; 1944, Lisboa), escritor, professor universitário e pedagogo português, que foi diretor-geral da Instrução Pública de Portugal (1906-1910) e autor de obras sobre educação, entre elas 'Educação e Ensino' (1911).","links":["https://pt.wikipedia.org/wiki/Agostinho_de_Campos","https://www.infopedia.pt/artigos/$agostinho-de-campos"],"confirmado":true,"temas":["Método montessoriano"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Jornal do Commercio Edição da Tarde","titulo":"Pombos-correios","decada":"1910-1919","tema":"Método montessoriano"}]},{"nome":"C. Lopes","nota":"Informação não localizada. Nome genérico demais para identificação segura; a busca não retornou nenhuma correspondência biográfica confiável ligada à recepção de Montessori na imprensa brasileira.","links":[],"confirmado":false,"temas":["Carta","Método montessoriano"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"O imparcial","titulo":"Montessori e o seu methodo","decada":"1920-1929","tema":"Método montessoriano"},{"periodico":"O imparcial","titulo":"Montessori e o seu methodo VII","decada":"1920-1929","tema":"Método montessoriano"},{"periodico":"Diário de S. Luiz","titulo":"O casamento das professoras","decada":"1920-1929","tema":"Carta"}]},{"nome":"Coryntho da Fonseca","nota":"Em 1882, nasceu no Rio de Janeiro, Corinto da Fonseca. A sua carreira docente iniciou no Colégio Pedro II, lecionou na Escola 15 de Novembro e dirigiu a Escola Profissional Sousa Aguiar. Desta experiência, escreveu sobre os problemas da escola ativa e dos trabalhos manuais. O livro do Corinto da Fonseca trata dos princípios da Escola Ativa; delimita-se ao extenso campo dos trabalhos manuais e, por consequência, ao amplo conjunto de técnicas didáticas.","links":["https://www.even3.com.br/anais/cbhe2024/866789-o-sloyd-para-corinto-da-fonseca--uma-analise-da-obra-a-escola-ativa-e-os-trabalhos-manuais-(1929)/"],"confirmado":true,"temas":["Método montessoriano"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Illustração Brasileira","titulo":"O methodo Montessori","decada":"1920-1929","tema":"Método montessoriano"}]},{"nome":"Guaraciaba Timotheo","nota":"Professora da Escola Normal de Niterói","links":["https://www.redalyc.org/journal/5761/576161730006/html/"],"confirmado":true,"temas":["Método montessoriano","Psicologia Infantil"],"decadas":["1920-1929","1930-1939"],"ocorrencias":[{"periodico":"O Fluminense","titulo":"Em torno da educação: defesa do método Montessori.","decada":"1920-1929","tema":"Método montessoriano"},{"periodico":"O Fluminense","titulo":"Referência a Montessori na coluna \"Psicologia infantil\".","decada":"1930-1939","tema":"Psicologia Infantil"}]},{"nome":"Mirka de La Cerda","nota":"Informação não localizada. Não foram encontrados registros biográficos correspondentes a esse nome; a busca retornou apenas homônimos parciais sem relação aparente (ex.: sobrenomes \"de la Cerda\" de famílias nobres espanholas históricas).","links":[],"confirmado":false,"temas":["Método montessoriano"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"\"Casa da Criança\".","decada":"1930-1939","tema":"Método montessoriano"}]},{"nome":"Dulce Diniz do Nascimento e Silva","nota":"Informação não localizada. Nenhuma fonte biográfica correspondente a esse nome completo foi encontrada nas buscas realizadas; os resultados trouxeram apenas homônimos parciais de sobrenome sem relação identificável.","links":[],"confirmado":false,"temas":["Método montessoriano","Sistemas de ensino"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"A Escola Primária","titulo":"\"A educação das crianças pelo methodo Montessori\".","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"A Escola Primária","titulo":"\"As escolas novas scandinavas\" (resumo de leitura apresentado no Centro de Professores do 7º distrito).","decada":"1930-1939","tema":"Sistemas de ensino"}]},{"nome":"Francisco Venancio Filho","nota":"1894-1946, Campos dos Goytacazes (RJ). Engenheiro e educador; fundador e presidente da Associação Brasileira de Educação (1924); professor do Colégio Pedro II (1920-1937); diretor geral do Instituto de Educação do Rio de Janeiro (1945).","links":["https://basearch.coc.fiocruz.br/index.php/francisco-venancio-filho"],"confirmado":true,"temas":["Método montessoriano","Nota biográfica","Temas em pedagogia"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"A Escola Primária","titulo":"Referência a Montessori em texto sobre Decroly.","decada":"1930-1939","tema":"Método montessoriano"},{"periodico":"Boletim de Ariel","titulo":"Artigo sobre Decroly, com referência a Montessori.","decada":"1930-1939","tema":"Temas em pedagogia"},{"periodico":"A Escola Primária","titulo":"Decroly, o grande educador","decada":"1930-1939","tema":"Nota biográfica"}]},{"nome":"Jean-Jacques Bernard","nota":"sem informação","links":[],"confirmado":true,"temas":["Método montessoriano"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"Gazeta de Notícias","titulo":"O método Montessori na França","decada":"1940-1949","tema":"Método montessoriano"}]},{"nome":"Erika Mayer","nota":"Professora, diplomada em Amsterdã e ex-aluna de Montessori.","links":["https://portal.amelica.org/ameli/journal/574/5742524012/html/"],"confirmado":true,"temas":["Conferências","Curso","Método montessoriano","Nota biográfica"],"decadas":["1940-1949","1950-1959"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"Sem título","decada":"1940-1949","tema":"Método montessoriano"},{"periodico":"Diário de Notícias","titulo":"Chamada para conferência da professora Erica Mayer, \"Introdução ao método montessori\" (6 ocorrências no periódico com este conteúdo/tema).","decada":"1940-1949","tema":"Conferências"},{"periodico":"Correio da Manhã","titulo":"Curso Intensivo de Serviço Social pela Associação Montessori do Brasil, com colaboração da professora Erika Mayer, ex-aluna de Montessori.","decada":"1940-1949","tema":"Curso"},{"periodico":"O Jornal","titulo":"Curso informativo de Serviço Social com a cadeira \"Introdução à técnica do ensino montessori\", ministrada por Erika Mayer, aluna de Montessori diplomada em Amsterdã.","decada":"1940-1949","tema":"Curso"},{"periodico":"Correio da Manhã","titulo":"\"Uma mulher extraordinária: Maria Montessori\".","decada":"1950-1959","tema":"Nota biográfica"}]},{"nome":"Adalzira Bittencourt","nota":"Nasceu em 2 de novembro de 1904, em Bragança Paulista (SP), e faleceu em 28 de outubro de 1976, no Rio de Janeiro. Foi advogada (uma das poucas mulheres formadas em Direito pela USP, em 1927), escritora e figura destacada da primeira onda do feminismo brasileiro; fundou e presidiu a Academia Feminista de Letras do Rio de Janeiro e organizou o Dicionário bibliográfico de mulheres ilustres, notáveis e intelectuais do Brasil (1969).","links":["https://pt.wikipedia.org/wiki/Adalzira_Bittencourt","http://www.mulher500.org.br/adalzira-bittencourt-1904-1976/"],"confirmado":true,"temas":["Método montessoriano","Nota biográfica"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Jornal do Commercio","titulo":"Anúncio de publicação do artigo \"Maria Montessori: a libertadora da infância\".","decada":"1950-1959","tema":"Método montessoriano"},{"periodico":"Jornal do Commercio","titulo":"\"Maria Montessori: a libertadora da infância.\"","decada":"1950-1959","tema":"Método montessoriano"},{"periodico":"Walkyrias","titulo":"\"Maria Montessori: a libertadora da infância.\"","decada":"1950-1959","tema":"Nota biográfica"}]},{"nome":"Alicette de Beltrán","nota":"Aliciette de Beltrán (nascida na Bélgica), criou o Instituto Psicopedagógico voltado para o atendimento e a reeducação de crianças excepcionais,  rua Cândido Benício, Jacarepaguá.","links":[],"confirmado":true,"temas":["Método montessoriano","Nota biográfica","Sistemas de ensino"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Tribuna da Imprensa","titulo":"Instituto Psicopedagógico","decada":"1950-1959","tema":"Método montessoriano"},{"periodico":"Diário de Notícias","titulo":"Debates sobre plano de ampliação da escola primária; Alicette comenta que foi aluna de Montessori.","decada":"1950-1959","tema":"Sistemas de ensino"},{"periodico":"Diário de Notícias","titulo":"\"Cuidemos das crianças do Brasil...\" (biografia).","decada":"1950-1959","tema":"Nota biográfica"}]},{"nome":"Barboza Vianna","nota":"Informação não localizada. Nome genérico (Barbosa/Barboza Vianna); a busca não retornou nenhuma fonte biográfica específica que permita identificar com segurança um autor ligado à educação ou à imprensa nesse período.","links":[],"confirmado":false,"temas":["Mulheres","Variedade"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Jornal do Recife","titulo":"O espartilho","decada":"1910-1919","tema":"Mulheres"},{"periodico":"Diário da Manhã","titulo":"Higiene para todos: o espartilho","decada":"1910-1919","tema":"Variedade"}]},{"nome":"Marqueza de Cospon / Itala Pia","nota":"Informação não localizada para nenhum dos dois nomes. Trata-se provavelmente de pseudônimo literário (\"Marqueza de Cospon\") com crédito de tradução (\"Itala Pia\"), mas nenhuma busca retornou identificação real de pessoa correspondente a qualquer um dos dois nomes.","links":[],"confirmado":false,"temas":["Mulheres"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"A União","titulo":"A poesia e as mulheres: As ideias de um poeta. As escolas Montessori. O esforço da criança. A repartição da lua.","decada":"1910-1919","tema":"Mulheres"}]},{"nome":"Moitinho Doria","nota":"Informação não localizada com segurança. Há um Jorge Moitinho Dória documentado como membro da Academia Nacional de Medicina, mas não foi encontrada confirmação de que seja a mesma pessoa citada como autora no periódico sobre Montessori.","links":["https://www.anm.org.br/jorge-moitinho-doria/"],"confirmado":false,"temas":["Ofício"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"A difusão do ensino primário","decada":"1920-1929","tema":"Ofício"}]},{"nome":"Maria Rosalia Ambrozzio","nota":"Maria Rosalia Ambrozzio (1888-1961), foi responsável pela introdução da renovação escolar no estado, a dedicação da professora alagoana juntamente com João Craveiro Costa, diretor do Grupo Escolar Diégues Júnior, proporcionou a construção do primeiro Jardim Infantil em 1926. Construído anexo ao grupo D. Pedro II, o “Pavilhão Montessori”, como assim foi nomeado, era organizado de acordo com a faixa etária de cada criança. O primeiro pavilhão foi destinado à criança de 3 a 4 anos, o segundo de 4 a 5, e o terceiro de 5 a 6.","links":["https://cedu.ufal.br/grupo/gephecl/uploads/docs/20260410-194915-d0c18bca-o-m-todo-montessoriano-nas-escolas-prim-rias-do-estado-de-alagoas-1928-1930.pdf"],"confirmado":true,"temas":["Nota biográfica","Palestra","Temas em pedagogia"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Revista de Ensino","titulo":"A disciplina da liberdade","decada":"1920-1929","tema":"Temas em pedagogia"},{"periodico":"Revista de Ensino","titulo":"Galeria dos mestres: em louvor de Maria Montessori","decada":"1920-1929","tema":"Nota biográfica"},{"periodico":"Revista de Ensino","titulo":"Pequena palestra sobre a cultura dos sentidos","decada":"1920-1929","tema":"Palestra"}]},{"nome":"Armanda Álvaro Alberto","nota":"Nasceu no Rio de Janeiro em 10 de junho de 1892 e faleceu em 5 de fevereiro de 1974. Foi educadora e ativista social, influenciada pelo método Montessori; fundou em fevereiro de 1921 a Escola Proletária de Meriti (depois Escola Regional de Meriti), em Duque de Caxias, e presidiu a Associação Brasileira de Educação (ABE) na década de 1930, além de ter sido cofundadora da União Feminina do Brasil.","links":["https://pt.wikipedia.org/wiki/Armanda_%C3%81lvaro_Alberto"],"confirmado":true,"temas":["Temas em pedagogia"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"A Educação: Revista mensal dedicada à defesa da instrucção no Brasil","titulo":"Qual o desenvolvimento que deve ter a Chimica no ensino primário","decada":"1920-1929","tema":"Temas em pedagogia"}]},{"nome":"Sylvia de Castro","nota":"Informação não localizada; nenhuma fonte biográfica correspondente a esse nome foi encontrada nas buscas realizadas.","links":[],"confirmado":false,"temas":["Temas em pedagogia"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Jornal de Theatro & Sport","titulo":"Educação nova","decada":"1920-1929","tema":"Temas em pedagogia"}]},{"nome":"Vanda Reis","nota":"Informação não localizada com segurança. Há um verbete biográfico de Vanda Mendes Reis no dicionário do CPDOC/FGV, mas não foi possível confirmar, a partir das buscas realizadas, que se trate da mesma pessoa referida como 'Vanda Reis' no periódico pesquisado, nem acessar o conteúdo do verbete (página bloqueada para raspagem automática).","links":["https://www18.fgv.br/cpdoc/acervo/dicionarios/verbete-biografico/vanda-mendes-reis"],"confirmado":false,"temas":["Temas em pedagogia"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"\"As professoras\".","decada":"1930-1939","tema":"Temas em pedagogia"}]},{"nome":"Janine Bouissounouse","nota":"Janine Bouissounouse (1903, Paris; morreu em Provins) foi intelectual francesa; estudou História e História da Arte na Sorbonne e depois na École du Louvre. Atuou como romancista, historiadora, jornalista e crítica de cinema, tendo sido secretária geral da revista La Revue du cinéma; publicou obras sobre figuras históricas como Joana d'Arc e Maria Stuart, além de estudos sobre Condorcet e o período napoleônico. Não é propriamente educadora, mas intelectual e escritora de formação universitária em humanidades.","links":["https://fr.wikipedia.org/wiki/Janine_Bouissounouse","https://maitron.fr/spip.php?article229266"],"confirmado":true,"temas":["Temas em pedagogia"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Correio da Manhã","titulo":"\"A acção das mulheres educadoras\".","decada":"1930-1939","tema":"Temas em pedagogia"}]},{"nome":"Jonathas Serrano","nota":"Jônatas (Jonathas) Serrano (6 de maio de 1885, Rio de Janeiro; 17 de outubro de 1944) formou-se em ciências jurídicas e sociais em 1907 e dedicou-se à área educacional, exercendo o magistério de História da Civilização, principalmente no Colégio Pedro II; foi diretor da Escola Normal do Distrito Federal (1927-1928) e subdiretor técnico da Instrução Pública do Distrito Federal (1928-1930). Integrou o Conselho Nacional de Educação e a Comissão Nacional do Livro Didático, e é autor de obras didáticas de história e pedagogia, entre elas 'Escola Nova' (1932), buscando conciliar princípios da fé católica com as novas ideias pedagógicas.","links":["https://pt.wikipedia.org/wiki/J%C3%B4natas_Serrano","https://www.scielo.br/j/rbh/a/CRnHwX4KLdmVpT5t67HJk7z/?lang=pt"],"confirmado":true,"temas":["Temas em pedagogia"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Jornal do Commercio","titulo":"O reinado de Jesus Christo na escola","decada":"1930-1939","tema":"Temas em pedagogia"}]},{"nome":"Ovídio Cunha","nota":"Informação não localizada. Não foram encontrados registros biográficos correspondentes a esse nome; os resultados da busca trouxeram apenas instituições de ensino que usam o nome \"Euclides da Cunha\" e outros homônimos parciais sem relação.","links":[],"confirmado":false,"temas":["Temas em pedagogia"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"Novas Diretrizes: política, cultura, economia","titulo":"Pedagogia terapêutica","decada":"1940-1949","tema":"Temas em pedagogia"}]},{"nome":"Jurema de Andara","nota":"Informação não localizada. Não foram encontrados registros de um indivíduo com este nome exato; buscas retornaram apenas resultados não relacionados (referências a 'Jurema' como planta/tradição religiosa e a outras pessoas de primeiro nome Jurema).","links":[],"confirmado":false,"temas":["Temas em pedagogia"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Correio da Manhã","titulo":"Mulheres em evidência: Leopoldina Netto...","decada":"1950-1959","tema":"Temas em pedagogia"}]},{"nome":"Sólon Borges dos Reis","nota":"Nasceu em 27 de julho de 1917, em Casa Branca (SP), e morreu em 9 de setembro de 2006. Formou-se em Letras e em Pedagogia pela Universidade de São Paulo (USP) e em Direito pela Universidade do Estado do Rio de Janeiro (1950). Atuou como Assistente Geral do Ensino (1948 a 1950), Secretário de Estado da Educação de São Paulo (1962) e Secretário Municipal de Educação de São Paulo (1993 a 1996), além de presidente da União Paulista de Educação, deputado estadual e deputado federal constituinte.","links":["https://pt.wikipedia.org/wiki/S%C3%B3lon_Borges_dos_Reis","https://www.redalyc.org/pdf/946/94626318.pdf"],"confirmado":true,"temas":["Temas em pedagogia"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Correio Paulistano","titulo":"O propósito de educação","decada":"1950-1959","tema":"Temas em pedagogia"}]},{"nome":"Marieta Menezes Alves de Souza","nota":"Informação não localizada. Não foram encontrados registros biográficos correspondentes a esse nome completo em fontes confiáveis (Wikipédia, SciELO, CPDOC, HISTEDBR ou repositórios universitários).","links":[],"confirmado":false,"temas":["Temas em pedagogia"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"O Theosophista","titulo":"Tese \"A educação na reconstrução do mundo\", no VII Congresso Nacional de Teosofia, com referência a Montessori.","decada":"1950-1959","tema":"Temas em pedagogia"}]},{"nome":"J. M. Gomes Ribeiro","nota":"Informação não localizada. Não foi encontrada, em buscas na web, identificação segura de um indivíduo com este nome ligado ao campo educativo no período pesquisado.","links":[],"confirmado":false,"temas":["Temas em pedagogia"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"O Paiz","titulo":"","decada":"1920-1929","tema":"Temas em pedagogia"}]},{"nome":"Alípio Correia da Franca","nota":"Nasceu em 15 de agosto de 1871, no distrito de Santiago do Iguape, Cachoeira (BA), e faleceu em 8 de outubro de 1957, em Salvador (BA). Foi pedagogo baiano, catedrático da Escola Normal da Bahia e vice-diretor do Instituto Normal da Bahia (1930); introduziu e traduziu o método Montessori no Brasil, mantendo correspondência com Maria Montessori, e fundou o Colégio da Bahia (atual Colégio Central) e o Colégio Brasil. Publicou artigos sobre educação infantil e o método Montessori na Revista de Ensino (1929-1930).","links":["https://pt.wikipedia.org/wiki/Al%C3%ADpio_Franca"],"confirmado":true,"temas":["Periódico"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"A Educação: Revista mensal dedicada à defesa da instrucção no Brasil","titulo":"","decada":"1920-1929","tema":"Periódico"}]},{"nome":"Maria Dorothea Hatz","nota":"Informação não localizada. As buscas não retornaram um indivíduo correspondente a este nome com vínculo ao campo educativo; os resultados encontrados referem-se a pessoas homônimas não relacionadas (arquiduquesas e outras figuras de nome semelhante) ou a pessoas contemporâneas sem relação confirmada.","links":[],"confirmado":false,"temas":["Periódico"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"PAN: Semanário de leitura mundial","titulo":"\"A creança e a escola\" (Revista de Pedagogia, Madrid), com referência a Montessori.","decada":"1930-1939","tema":"Periódico"}]},{"nome":"Hostilio Cezar de Souza Araujo","nota":"Nasceu em 23 de abril de 1893, em Imbituva (PR); a data de morte não foi localizada. Formou-se em Direito (curso citado como realizado em São Paulo) e atuou em Curitiba como advogado e professor catedrático de Direito e Filosofia na Universidade do Paraná; foi jornalista (colaborador do Diário da Tarde), Secretário de Educação do Paraná, prefeito de Curitiba, Secretário do Interior e Justiça e Procurador Geral do Estado; ingressou no Instituto dos Advogados do Paraná em 1919 e integrou o primeiro conselho da OAB-PR (1931).","links":["https://iappr.org.br/site/1933-2/","https://iappr.org.br/1933_/"],"confirmado":true,"temas":["Sistemas de ensino"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Diário da Tarde","titulo":"\"O maior problema nacional\": palestra sobre o número de escolas no Paraná que usam o método montessori.","decada":"1930-1939","tema":"Sistemas de ensino"}]},{"nome":"Jay Kirchner","nota":"Informação não localizada. As buscas não retornaram indivíduo identificável com vínculo ao campo educativo ou ao contexto pesquisado (há apenas resultados de outras pessoas de sobrenome Kirchner, sem relação confirmada).","links":[],"confirmado":false,"temas":["Sistemas de ensino"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"O Jornal","titulo":"A instrução pública na Holanda","decada":"1940-1949","tema":"Sistemas de ensino"}]},{"nome":"M. de Oliveira Freitas","nota":"Informação não localizada. Não foi possível identificar com segurança, em buscas na web, um indivíduo correspondente a este nome com vínculo ao campo educativo do período pesquisado.","links":[],"confirmado":false,"temas":["Sistemas de ensino"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"A Tribuna","titulo":"Consciência agrícola","decada":"1940-1949","tema":"Sistemas de ensino"}]},{"nome":"Rui Blás","nota":"Informação não localizada; a busca não retornou nenhuma fonte biográfica confiável que identifique esse nome como autor ligado ao campo educativo ou à recepção de Montessori no Brasil.","links":[],"confirmado":false,"temas":["Sistemas de ensino"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"A Tribuna","titulo":"Impróprio para menores","decada":"1940-1949","tema":"Sistemas de ensino"}]},{"nome":"Ataliba de Oliveira","nota":"Nome completo Ataliba Antônio de Oliveira; filho de Lourenço Antônio de Oliveira, ex-escravizado que comprou a própria liberdade e a da família trabalhando como mestre de obras. Formado pela Escola Normal da Praça da República (São Paulo), foi o primeiro diretor do Grupo Escolar Coronel Júlio César, em Itatiba (SP), entre 1913 e 1920, difundindo métodos pedagógicos modernos na região de Itatiba/Campinas. As datas de nascimento e morte não foram localizadas.","links":["https://www.usf.edu.br/galeria/getImage/385/3209177944767972.pdf","https://www.researchgate.net/publication/356550496_O_Grupo_Escolar_Coronel_Julio_Cesar_de_Itatiba_SP_conexoes_entre_a_historia_da_educacao_o_processo_de_restauracao_do_predio_e_a_cidade","https://www.itatiba.sp.gov.br/imprensa/noticias/emeb-julio-cesar-a-mais-antiga-escola-de-itatiba-chega-aos-130-anos-de-historia"],"confirmado":true,"temas":["Sistemas de ensino"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"Correio Paulistano","titulo":"Problemas da instrução pública","decada":"1940-1949","tema":"Sistemas de ensino"}]},{"nome":"Renato de Alencar","nota":"Informação não localizada. Não foram encontrados registros biográficos correspondentes a esse nome ligados ao campo educativo brasileiro ou à recepção do método Montessori; os resultados da busca não trouxeram nenhuma correspondência relevante.","links":[],"confirmado":false,"temas":["Tese"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Revista de Ensino","titulo":"Antagonias da didatica na unilateralidade do ensino","decada":"1920-1929","tema":"Tese"}]},{"nome":"Achilles Lisboa","nota":"Há um nome homônimo referido como 'Dr. Achilles Lisboa' em um blog sobre memória e personalidades do Maranhão, associado a uma obra chamada 'Achilles Lisboa: Glória do Maranhão e do Brasil'; porém não foi possível verificar o conteúdo da página (erro de acesso) nem confirmar datas, formação ou vínculo direto com educação ou com o periódico pesquisado. Não há confirmação segura de identidade.","links":["https://www.ameilivraria.com/product-page/achilles-lisboa-gl%C3%B3ria-do-maranh%C3%A3o-e-do-brasil"],"confirmado":true,"temas":["carta"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Diário de S. Luiz","titulo":"O casamento das professoras: resposta aos que o defendem","decada":"1920-1929","tema":"carta"}]},{"nome":"Maria José","nota":"Informação não localizada. Nome demasiado genérico para identificação individual segura sem mais contexto biográfico ou institucional.","links":[],"confirmado":false,"temas":["Carta"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"O Jornal","titulo":"\"Carta à Mulher\".","decada":"1930-1939","tema":"Carta"}]},{"nome":"Aci Carvalho","nota":"Informação não localizada. As buscas não retornaram nenhuma biografia confiável de pessoa com esse nome ligada à educação ou ao período pesquisado.","links":[],"confirmado":false,"temas":["carta"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"O Jornal","titulo":"\"Carta a uma professora\".","decada":"1930-1939","tema":"carta"}]},{"nome":"Miguel Calmon du Pin e Almeida","nota":"Nasceu em Salvador (BA) em 18 de setembro de 1879 e faleceu em 25 de fevereiro de 1935; teve atuação política de projeção nacional entre a Bahia e o Rio de Janeiro. Não foi educador, mas político da Primeira República: foi Secretário de Agricultura, Viação, Indústria e Obras Públicas da Bahia (1902-1906), Deputado Federal pela Bahia, Ministro da Viação e Obras Públicas (1906-1909), Ministro da Agricultura, Indústria e Comércio (1922-1926) e Senador pela Bahia (1927-1930).","links":["https://mapa.an.gov.br/index.php/assuntos/79-producao/70-biografias/1087-miguel-calmon-du-pin-e-almeida","https://cpdoc.fgv.br/sites/default/files/verbetes/primeira-republica/CALMON,%20Miguel.pdf","https://www.wikidata.org/wiki/Q1793651"],"confirmado":true,"temas":["Conferências"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Annaes da Camara dos Deputados","titulo":"As promessas e os resultados da pedagogia moderna","decada":"1910-1919","tema":"Conferências"}]},{"nome":"Enói Renée Navarro Swain","nota":"Enói Renée Navarro Swain (1920-2009) nasceu em Cerro Azul-PR. Escritora, jornalista e pedagoga, dedicou-se ao ensino, explorando a leitura e a contação de histórias. Foi membro da Academia de Letras José de Alencar, da Associação de Jornalistas e Escritoras do Brasil, do Centro de Letras do Paraná e do Pen Club do Brasil.","links":["https://pcs.uem.br/cedoc-lafep/indice-de-escritoras/e/enoi-renee-navarro-swain-1"],"confirmado":true,"temas":["Curso"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"A Divulgação","titulo":"\"O que os pais devem saber\": sobre o curso de monitoras montessorianas para jardim de infância.","decada":"1950-1959","tema":"Curso"}]},{"nome":"Carlos Leite Ribeiro","nota":"Carlos Leite Ribeiro (Rio de Janeiro, 5 de abril de 1858 - Rio de Janeiro, 14 de fevereiro de 1945) foi um militar e político brasileiro que exerceu a função de prefeito do Distrito Federal do Brasil. Foi tenente-coronel da Guarda Nacional e deputado federal","links":["https://pt.wikipedia.org/wiki/Carlos_Leite_Ribeiro"],"confirmado":true,"temas":["Debate legislativo"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"Jornal do Commercio","titulo":"Conselho Municipal do Distrito Federal\n2ª sessão ordinária\nAta da 21ª sessão, em 13 de outubro de 1915","decada":"1910-1919","tema":"Debate legislativo"}]},{"nome":"Carmen Galceran","nota":"Informação não localizada. Nenhuma fonte biográfica confiável foi encontrada para esse nome nas buscas realizadas.","links":[],"confirmado":false,"temas":["Entrevista"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"A noite","titulo":"A criadora de um novo sistema de ensino infantil: entrevista com a dra. Maria Montessori.","decada":"1920-1929","tema":"Entrevista"}]},{"nome":"Bernardes Junior","nota":"Informação não localizada. Nome genérico; nenhuma fonte confiável foi encontrada, e não deve ser confundido com o ex-presidente Artur Bernardes.","links":[],"confirmado":false,"temas":["Escola montessoriana"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Revista de Ensino","titulo":"\"As ideias novas da instrucção\", com referência à aplicação do método montessori pela professora Maria Rosalia de Ambrozzio.","decada":"1930-1939","tema":"Escola montessoriana"}]},{"nome":"A. T.","nota":"Informação não localizada; as iniciais são insuficientes para qualquer identificação segura.","links":[],"confirmado":false,"temas":["Ficha de atividade"],"decadas":["1910-1919"],"ocorrencias":[{"periodico":"A Escola Primária","titulo":"Aqui e ali","decada":"1910-1919","tema":"Ficha de atividade"}]},{"nome":"F. Augusto Nunes","nota":"Informação não localizada. As iniciais e o sobrenome não permitiram identificação segura de vínculo com o campo educativo ou com a recepção de Montessori no Brasil.","links":[],"confirmado":false,"temas":["Homenagem"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Correio Paulistano","titulo":"Presente da Escola Normal de Anhanguera para Maria Montessori.","decada":"1950-1959","tema":"Homenagem"}]},{"nome":"Alma Azul","nota":"Informação não localizada; trata-se provavelmente de pseudônimo de articulista, sem identificação segura da pessoa real por trás do nome nas buscas realizadas.","links":[],"confirmado":false,"temas":["Nota biográfica"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"O Jornal","titulo":"\"Mulheres, Maria Montessori\".","decada":"1930-1939","tema":"Nota biográfica"}]},{"nome":"Louis Raillon","nota":"Informação não localizada. As buscas não retornaram um indivíduo identificável com este nome ligado à pedagogia ou à educação, apenas resultados genéricos sobre pedagogia Montessori sem menção a esse autor.","links":[],"confirmado":false,"temas":["Nota biográfica"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Correio da Manhã","titulo":"\"Maria Montessori\".","decada":"1950-1959","tema":"Nota biográfica"}]},{"nome":"Olga Obry","nota":"Informação não localizada. Há uma autora de mesmo nome, responsável pelo livro \"Catherine du Brésil (i.e. Catherine Caramurú), filleule de Saint-Malo\", mas não foi encontrada confirmação biográfica de que seja a mesma pessoa citada no periódico, nem dados de nascimento/morte ou vínculo educativo.","links":["https://search.worldcat.org/title/olga-obry-catherine-du-bresil-filleule-de-saint-malo/oclc/493935819"],"confirmado":false,"temas":["Nota biográfica"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Diário Carioca","titulo":"\"Dois redentores da Infância: Frederico Froebel... e Maria Montessori...\"","decada":"1950-1959","tema":"Nota biográfica"}]},{"nome":"Elpidio Pimentel","nota":"Não foram localizadas datas de nascimento ou morte. Sua atuação está registrada no Espírito Santo, associada a uma proposta de educação especial no ano de 1923, tema de artigo acadêmico específico publicado no Caderno Eletrônico de Ciências Sociais (UFES).","links":["https://periodicos.ufes.br/cadecs/article/view/13657","https://periodicos.ufes.br/cadecs/article/view/13657/9677"],"confirmado":true,"temas":["Congresso"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"Vida Capichaba","titulo":"","decada":"1920-1929","tema":"Congresso"}]},{"nome":"S. Marny Otero","nota":"Informação não localizada. A busca não confirmou a menção a um 'delegado uruguaio' com esse nome em congresso ou evento internacional; os resultados encontrados referem-se a pessoas homônimas sem relação aparente (futebolistas e outros profissionais de sobrenome Otero).","links":[],"confirmado":false,"temas":["Congresso"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"\"O sexto congresso internacional da educação nova\" (continuação).","decada":"1930-1939","tema":"Congresso"}]},{"nome":"J. A. Martins Gomes","nota":"Informação não localizada. Não foi possível identificar com segurança, em buscas na web, um indivíduo correspondente a este nome com vínculo confirmado ao campo educativo brasileiro do período pesquisado.","links":[],"confirmado":false,"temas":["Escolas"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"O Theosophista","titulo":"\"O mundo actual e a criança\", em comemoração à semana da criança promovida pelo Rotary Club de Jahu.","decada":"1930-1939","tema":"Escolas"}]},{"nome":"Marlinha C. Leão","nota":"Informação não localizada. A busca não retornou nenhum registro biográfico correspondente a esse nome; apenas resultados irrelevantes (homônimos parciais de \"Leão\" sem relação com o nome pesquisado).","links":[],"confirmado":false,"temas":["Escolas"],"decadas":["1930-1939"],"ocorrencias":[{"periodico":"Jornal do Recife","titulo":"Demonstração do método montessori em reunião do círculo de pais e mestres do grupo escolar Amaury de Medeiros.","decada":"1930-1939","tema":"Escolas"}]},{"nome":"Yvonne Jean","nota":"De origem belga, radicada no Brasil desde 1940 e, a partir de 1962, em Brasília; morreu em 24 de março de 1981 (data de nascimento não confirmada com precisão nas fontes consultadas). Foi jornalista, professora, tradutora e intérprete, ligada à instalação da Universidade de Brasília (UnB), onde dirigiu o Centro de Extensão Cultural. Colunista de educação no Correio Braziliense nos anos 1960 e no Jornal de Brasília ao longo dos anos 1970 (coluna 'Ensino dia a dia'), é autora de milhares de artigos sobre educação, arte e cultura.","links":["https://jornaldebrasilia.com.br/brasilia/a-vida-e-o-legado-de-yvonne-jean-fundadora-da-unb-e-defensora-da-educacao/","https://www.scielo.br/j/ep/a/VfQXskP3SPvPyqfLDNhGbgb/","https://www.academia.edu/33816783/Yvonne_Jean_Brasi_lia_e_a_UnB_1962_1965_"],"confirmado":true,"temas":["Escolas"],"decadas":["1940-1949"],"ocorrencias":[{"periodico":"O Jornal","titulo":"Visitando escolas... XIV - Jardim de Infância Campos Salles","decada":"1940-1949","tema":"Escolas"}]},{"nome":"Flexa Ribeiro (José Flexa Pinto Ribeiro)","nota":"Nasceu em 1884, em Faro (PA), e faleceu em 1971; atuou no Rio de Janeiro como professor, crítico e historiador da arte brasileira. Foi diretor da Escola Nacional de Belas Artes entre 1948 e 1952 e autor da obra 'História Crítica da Arte', considerada obra de referência na historiografia da arte no Brasil. Não deve ser confundido com o senador contemporâneo homônimo, nascido em 1943.","links":["https://pt.wikipedia.org/wiki/Fl%C3%A9xa_Ribeiro"],"confirmado":true,"temas":["Viagem"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"O Paiz","titulo":"","decada":"1920-1929","tema":"Viagem"}]},{"nome":"Helio B. de Carvalho","nota":"Informação não localizada. As iniciais e o sobrenome não permitiram identificação segura de vínculo com o campo educativo ou com Montessori.","links":[],"confirmado":false,"temas":["Viagem"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"O Dia","titulo":"\"Presença de Maria Montessori\": Montessori visitará o Brasil em outubro de 1951.","decada":"1950-1959","tema":"Viagem"}]},{"nome":"P. J. Busato","nota":"Informação não localizada com segurança. Há um Padre Busato documentado como protagonista na história de Erechim (RS) entre 1926 e 1950, mas não foi encontrada confirmação de que seja a mesma pessoa citada como \"P. J. Busato\" no periódico sobre Montessori.","links":["https://pt.wikipedia.org/wiki/Benjamin_Busato"],"confirmado":false,"temas":["Obtuário"],"decadas":["1950-1959"],"ocorrencias":[{"periodico":"Jornal do Brasil","titulo":"\"Morreu Maria Montessori.\"","decada":"1950-1959","tema":"Obtuário"}]},{"nome":"Renato Jardim","nota":"Nasceu em Resende (RJ) em 9 de novembro de 1867 e faleceu em 24 de março de 1951. Atuou como professor de Geografia no Ginásio do Estado de Ribeirão Preto (SP, desde 1907) e depois como diretor da mesma instituição (1917); foi também presidente da Sociedade de Educação de São Paulo, diretor da Escola Normal da Praça da República (1922-1924) e diretor da Instrução Pública do Distrito Federal (1926-1927); publicou obras sobre educação, entre elas \"Psicanálise e educação\" (1932) e \"Escola Nova, coletivismo e individualismo\" (1936).","links":["https://periodicos.sbu.unicamp.br/ojs/index.php/histedbr/article/view/8640194"],"confirmado":true,"temas":["Sociedade de Educação"],"decadas":["1920-1929"],"ocorrencias":[{"periodico":"A Educação: Revista mensal dedicada à defesa da instrucção no Brasil","titulo":"O chamado 'methodo analytico' no ensino da leitura, considerações lidas perante a Sociedade de Educação.","decada":"1920-1929","tema":"Sociedade de Educação"}]}]};
+
+const THEME_COUNTS = (() => {
+  const c = {};
+  DATA.temas.forEach(t => c[t] = 0);
+  DATA.pessoas.forEach(p => p.temas.forEach(t => c[t] = (c[t]||0) + 1));
+  return c;
+})();
+const THEMES_SORTED = DATA.temas.slice().sort((a,b) => THEME_COUNTS[b]-THEME_COUNTS[a]);
+
+const DECADA_COUNTS = (() => {
+  const c = {};
+  DATA.pessoas.forEach(p => (p.decadas||[]).forEach(d => c[d] = (c[d]||0) + 1));
+  return c;
+})();
+const DECADAS_SORTED = Object.keys(DECADA_COUNTS).sort();
+const DECADA_PALETTE = ['var(--dec-1)','var(--dec-2)','var(--dec-3)','var(--dec-4)','var(--dec-5)'];
+const DECADA_COLORS = {};
+DECADAS_SORTED.forEach((d,i)=>{ DECADA_COLORS[d] = DECADA_PALETTE[i % DECADA_PALETTE.length]; });
+
+const people = DATA.pessoas.slice().sort((a,b)=>a.nome.localeCompare(b.nome,'pt'));
+const nConfirmados = people.filter(p=>p.confirmado).length;
+let activeTema = null;
+let activeDecada = null;
+const pillEl = {};
+
+// ---------- stats ----------
+const statsRow = document.getElementById('statsRow');
+[
+  [people.length, 'autores identificados'],
+  [nConfirmados, 'com biografia confirmada'],
+  [THEMES_SORTED.length, 'temáticas no levantamento'],
+].forEach(([n,label])=>{
+  const d = document.createElement('div');
+  d.className = 'stat';
+  d.innerHTML = '<b>'+n+'</b>'+label;
+  statsRow.appendChild(d);
+});
+
+// ---------- filter chips: categorias (temática) ----------
+const filterRow = document.getElementById('filterRow');
+const allBtn = document.createElement('button');
+allBtn.className = 'chip-theme all active';
+allBtn.innerHTML = 'Todos <span class="n">' + people.length + '</span>';
+allBtn.addEventListener('click', ()=> setTema(null));
+filterRow.appendChild(allBtn);
+THEMES_SORTED.forEach(theme=>{
+  const btn = document.createElement('button');
+  btn.className = 'chip-theme';
+  btn.dataset.theme = theme;
+  btn.innerHTML = theme + ' <span class="n">' + THEME_COUNTS[theme] + '</span>';
+  btn.addEventListener('click', ()=> setTema(theme));
+  filterRow.appendChild(btn);
+});
+
+// ---------- filter chips: periodicidade (década) ----------
+const filterRowDecada = document.getElementById('filterRowDecada');
+const allBtnDecada = document.createElement('button');
+allBtnDecada.className = 'chip-theme all active';
+allBtnDecada.innerHTML = 'Todos os períodos <span class="n">' + people.length + '</span>';
+allBtnDecada.addEventListener('click', ()=> setDecada(null));
+filterRowDecada.appendChild(allBtnDecada);
+DECADAS_SORTED.forEach(decada=>{
+  const btn = document.createElement('button');
+  btn.className = 'chip-theme';
+  btn.dataset.decada = decada;
+  btn.style.setProperty('--dc', DECADA_COLORS[decada]);
+  btn.innerHTML = decada + ' <span class="n">' + DECADA_COUNTS[decada] + '</span>';
+  btn.addEventListener('click', ()=> setDecada(decada));
+  filterRowDecada.appendChild(btn);
+});
+
+// ---------- pills ----------
+const cloud = document.getElementById('cloud');
+const statusLine = document.getElementById('statusLine');
+const infobar = document.getElementById('infobar');
+const infobarBackdrop = document.getElementById('infobarBackdrop');
+const infoBody = document.getElementById('infoBody');
+function closeInfo(){
+  infobar.classList.remove('show');
+  infobarBackdrop.classList.remove('show');
+  document.body.classList.remove('modal-open');
+}
+document.getElementById('infoClose').addEventListener('click', closeInfo);
+infobarBackdrop.addEventListener('click', closeInfo);
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeInfo(); });
+
+const defaultDC = {};
+people.forEach(p=>{
+  const b = document.createElement('button');
+  const decadas = p.decadas || [];
+  const corPrincipal = decadas.length ? DECADA_COLORS[decadas[0]] : null;
+  b.className = 'pill' + (p.temas.length>=2 ? ' bridge' : '') + (p.confirmado ? ' confirmado' : '') + (corPrincipal ? ' has-decada' : '');
+  if(corPrincipal){
+    b.style.setProperty('--dc', corPrincipal);
+    defaultDC[p.nome] = corPrincipal;
+  }
+  b.textContent = p.nome;
+  b.addEventListener('click', ()=> showInfo(p));
+  cloud.appendChild(b);
+  pillEl[p.nome] = b;
+});
+
+function setTema(theme){
+  activeTema = (activeTema === theme) ? null : theme;
+  applyFilters();
+}
+
+function setDecada(decada){
+  activeDecada = (activeDecada === decada) ? null : decada;
+  applyFilters();
+}
+
+function applyFilters(){
+  document.querySelectorAll('#filterRow .chip-theme').forEach(btn=>{
+    const isAll = btn.classList.contains('all');
+    const match = isAll ? (activeTema === null) : (btn.dataset.theme === activeTema);
+    btn.classList.toggle('active', match);
+  });
+  document.querySelectorAll('#filterRowDecada .chip-theme').forEach(btn=>{
+    const isAll = btn.classList.contains('all');
+    const match = isAll ? (activeDecada === null) : (btn.dataset.decada === activeDecada);
+    btn.classList.toggle('active', match);
+  });
+
+  let n = 0;
+  people.forEach(p=>{
+    const el = pillEl[p.nome];
+    const matchTema = activeTema === null || p.temas.includes(activeTema);
+    const matchDecada = activeDecada === null || (p.decadas||[]).includes(activeDecada);
+    if(matchTema && matchDecada){
+      el.classList.add('match');
+      el.classList.remove('dim');
+      el.style.order = 0;
+      if(activeDecada !== null){
+        el.classList.add('decada-color');
+        el.style.setProperty('--dc', DECADA_COLORS[activeDecada]);
+      } else {
+        el.classList.remove('decada-color');
+        if(defaultDC[p.nome]) el.style.setProperty('--dc', defaultDC[p.nome]);
+      }
+      n++;
+    } else {
+      el.classList.add('dim');
+      el.classList.remove('match');
+      el.classList.remove('decada-color');
+      if(defaultDC[p.nome]) el.style.setProperty('--dc', defaultDC[p.nome]);
+      el.style.order = 1;
+    }
+  });
+
+  if(activeTema === null && activeDecada === null){
+    people.forEach(p=>{
+      const el = pillEl[p.nome];
+      el.classList.remove('dim','match','decada-color');
+      if(defaultDC[p.nome]) el.style.setProperty('--dc', defaultDC[p.nome]);
+    });
+    statusLine.innerHTML = 'Mostrando os ' + people.length + ' autores. Selecione uma temática ou um período acima para filtrar.';
+  } else {
+    const partes = [];
+    if(activeTema !== null) partes.push('sobre <b>' + activeTema + '</b>');
+    if(activeDecada !== null) partes.push('no período <b>' + activeDecada + '</b>');
+    statusLine.innerHTML = '<b>' + n + '</b> autor' + (n===1?'':'es') + ' escreve' + (n===1?'u':'ram') + ' ' + partes.join(' e ') + '.';
+  }
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function showInfo(p){
+  const badge = p.confirmado
+    ? '<span class="badge ok">Biografia confirmada</span>'
+    : '<span class="badge no">Não localizada</span>';
+
+  let html = '<h3>' + escapeHtml(p.nome) + '</h3>' + badge;
+  html += '<p class="nota">' + escapeHtml(p.nota) + '</p>';
+
+  if(p.links && p.links.length){
+    html += '<div class="linkrow">' + p.links.map(l =>
+      '<a href="'+escapeHtml(l)+'" target="_blank" rel="noopener">Abrir fonte &#8599;</a>'
+    ).join('') + '</div>';
+  }
+
+  html += '<p class="section-label">Temáticas dos textos assinados</p>';
+  html += '<div class="themetags">' + p.temas.map(t => '<span class="themetag">'+escapeHtml(t)+'</span>').join('') + '</div>';
+
+  html += '<p class="section-label">Ocorrências no levantamento (' + p.ocorrencias.length + ')</p>';
+  html += '<ul class="occlist">' + p.ocorrencias.map(o =>
+    '<li><span class="tit">' + escapeHtml(o.titulo || '(sem título registrado)') + '</span><br>'
+    + '<span class="meta">' + escapeHtml(o.periodico || '') + ' &middot; ' + escapeHtml(o.decada || '') + ' &middot; ' + escapeHtml(o.tema || '') + '</span></li>'
+  ).join('') + '</ul>';
+
+  infoBody.innerHTML = html;
+  infobar.classList.add('show');
+  infobarBackdrop.classList.add('show');
+  document.body.classList.add('modal-open');
+  infobar.scrollTop = 0;
+}
+
+function init(){
+  applyFilters();
+}
+init();
+</script>
+
+</body></html>

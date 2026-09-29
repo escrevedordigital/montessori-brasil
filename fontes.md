@@ -10,6 +10,12 @@ Este banco reúne as fontes localizadas ao longo da pesquisa — livros, periód
 
 *Disponibilizado sob os parâmetros da ciência aberta.*
 
+### Vozes da Imprensa Montessoriana
+
+**[Explore o levantamento hemerográfico interativo →](/vozes-imprensa/)**
+
+Ferramenta de busca com os 85 autores identificados em periódicos brasileiros (1900–1959) que publicaram sobre o sistema pedagógico de Maria Montessori. Permite filtrar por temática e por década, com nota biográfica, fontes e ocorrências completas para cada nome.
+
 ### Como preencher esta tabela
 
 Edite este arquivo (`fontes.md`) diretamente pelo GitHub e adicione uma linha por fonte, seguindo o modelo abaixo. Se o banco crescer muito, ele pode futuramente ser migrado para um arquivo CSV alimentando a página automaticamente — mas para começar, a tabela em Markdown já funciona bem.
